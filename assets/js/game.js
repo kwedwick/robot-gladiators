@@ -5,15 +5,10 @@ var playerMoney = 10;
 
 var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"]
 var enemyHealth = 50;
-var enemyAttack = 12;
+var enemyAttack = 80;
 
 
 
-for(var i = 0; i < enemyNames.length; i++) {
-    console.log(enemyNames[i]);
-    console.log(i);
-    console.log(enemyNames[i] + " is at " + i + " index");
-}
 
 //Game States
 // "WIN" - Player robot has defeated all enemy robots
@@ -80,9 +75,15 @@ var fight = function(enemyName) {
 
 for(var i = 0; i < enemyNames.length; i++) {
     // call fight function with enemy robot
-    var pickedEnemyName = enemyNames[i];
-    enemyHealth = 50;
-    fight(enemyNames[i]);
+    if (playerHealth > 0) {
+        window.alert("Welcome to Robot Gladiators! Round " + ( i + 1 ) );
+        var pickedEnemyName = enemyNames[i];
+        enemyHealth = 50;
+        fight(enemyNames[i]);
+    } else {
+        window.alert("You have lost your robot in battle! Game Over!");
+        break;
+    }
 }
 
 
